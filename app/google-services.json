@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "435868204271",
+    "firebase_url": "https://geobangla2.firebaseio.com",
+    "project_id": "geobangla2",
+    "storage_bucket": "geobangla2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435868204271:android:36ab0042aaf6cda3",
+        "android_client_info": {
+          "package_name": "com.example.omega.geobangla2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435868204271-0hcslbeobpvlb21n1em6i3d9h37929u2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.omega.geobangla2",
+            "certificate_hash": "3fc9906bb21774e81e6619f6114c233875bda511"
+          }
+        },
+        {
+          "client_id": "435868204271-5svocjm1h11mt6vt1ic4t3r9g9g7vsq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC5E3VltCYA4ZknFvAHk5nYNVTKZqZ46U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435868204271-5svocjm1h11mt6vt1ic4t3r9g9g7vsq1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

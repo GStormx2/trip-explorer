@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DivisionListActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Divisons"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="25sp"
+            android:textColor="@color/dark"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="35dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/div_barishal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/barishal"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/div_chittagong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chittagong"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/div_dhaka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dhaka"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/div_khulna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/khulna"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+
+        <TextView
+            android:id="@+id/div_mymensingh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mymensingh"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/div_rajshahi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rajshahi"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/div_rangpur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rangpur"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/div_sylhet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sylhet"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@color/dark"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+    </LinearLayout>
+</ScrollView>

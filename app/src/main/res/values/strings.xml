@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Geo Bangla</string>
+    <string name="dhaka">Dhaka</string>
+    <string name="barishal">Barishal</string>
+    <string name="chittagong">Chittagong</string>
+    <string name="khulna">Khulna</string>
+    <string name="mymensingh">Mymensingh</string>
+    <string name="rajshahi">Rajshahi</string>
+    <string name="rangpur">Rangpur</string>
+    <string name="sylhet">Sylhet</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="test_desc">Dhaka is the capital city of Bangladesh, in southern Asia. Set beside the Buriganga River, it’s at the center of national government, trade and culture. The 17th-century old city was the Mughal capital of Bengal, and many palaces and mosques remain. American architect Louis Khan’s National Parliament House complex typifies the huge, fast-growing modern metropolis.</string>
+</resources>

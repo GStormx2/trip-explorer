@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:id="@+id/divlist_layout">
+
+    <ImageView
+        android:id="@+id/divison_img"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@color/grey"
+        android:contentDescription="just an image"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/division_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divison_img"
+        android:text="Dhaka"
+        android:textSize="20sp"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/font_normal"/>
+    <TextView
+        android:id="@+id/division_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/division_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/test_desc"
+        android:fontFamily="@font/lato_regular"/>
+
+
+</RelativeLayout>
