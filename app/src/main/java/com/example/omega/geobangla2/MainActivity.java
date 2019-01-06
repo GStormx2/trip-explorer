@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    Intent intent = new Intent(getApplicationContext(), DivisionListActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LandingPage.class);
                     startActivity(intent);
                     if (!task.isSuccessful()){
                         Toast.makeText(MainActivity.this, "Incorrect Email or Password", Toast.LENGTH_LONG).show();
