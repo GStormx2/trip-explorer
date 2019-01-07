@@ -1,5 +1,6 @@
 package com.example.omega.geobangla2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -12,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -56,6 +59,24 @@ public class DivisionListActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull DivListRecycler holder, int position, @NonNull DivisionClass model) {
                 holder.setDetails(getApplicationContext(), model.getName(), model.getDescription(), model.getImage());
+                holder.setOnClickListener(new DivListRecycler.ClickListener() {
+                    @Override
+                    public void onItemCLick(View view, int position) {
+                        ImageView mDivImage = view.findViewById(R.id.divison_img);
+                        TextView mDivName = view.findViewById(R.id.division_name);
+                        TextView mDivDescription = view.findViewById(R.id.division_desc);
+
+                        String divName = mDivName.getText().toString();
+                        StoredResources.setClickedDivision(divName);
+                        Intent intent = new Intent(view.getContext(), TestActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onItemLongClock(View view, int position) {
+
+                    }
+                });
             }
 
             @NonNull
@@ -69,6 +90,7 @@ public class DivisionListActivity extends AppCompatActivity {
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+
 
     }
 

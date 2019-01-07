@@ -6,6 +6,7 @@ public class StoredResources {
     private static ArrayList<String> storedImageUrls = new ArrayList<>();
     private static ArrayList<String> storedNames = new ArrayList<>();
     private static int pos;
+    private static String clickedDivision;
 
     public void setStoredResources(ArrayList<String> imageUrls, ArrayList<String> imageNames){
         storedImageUrls = imageUrls;
@@ -25,5 +26,11 @@ public class StoredResources {
 
     public static int getPos() {
         return pos;
+    }
+    public static void setClickedDivision(String clickedDivision){
+        StoredResources.clickedDivision = clickedDivision;
+    }
+    public static String getClickedDivision(){
+        return StoredResources.clickedDivision;
     }
 }
