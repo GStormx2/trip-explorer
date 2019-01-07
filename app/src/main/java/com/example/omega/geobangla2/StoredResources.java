@@ -7,6 +7,15 @@ public class StoredResources {
     private static ArrayList<String> storedNames = new ArrayList<>();
     private static int pos;
     private static String clickedDivision;
+    private static String resortPosition;
+
+    public static String getResortPosition() {
+        return resortPosition;
+    }
+
+    public static void setResortPosition(String resortPosition) {
+        StoredResources.resortPosition = resortPosition;
+    }
 
     public void setStoredResources(ArrayList<String> imageUrls, ArrayList<String> imageNames){
         storedImageUrls = imageUrls;

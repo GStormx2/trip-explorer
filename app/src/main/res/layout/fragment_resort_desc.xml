@@ -1,32 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <android.support.v7.widget.CardView
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@android:color/white">
+        android:layout_height="wrap_content">
 
-        <ImageView
+        <android.support.v7.widget.CardView
+            android:id="@+id/card1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/ashe"
-            android:scaleType="centerCrop"
-            android:id="@+id/resort_desc_img"
-            android:contentDescription="resort image"
-            />
-        <TextView
-            android:id="@+id/resort_desc_name"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/lato_black"
-            android:textSize="18sp"
-            android:textColor="@color/dark"
-            android:text="Cassa Times Square"
-            android:paddingBottom="15dp"/>
-    </android.support.v7.widget.CardView>
+            android:layout_margin="7dp"
+            android:elevation="7dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-</RelativeLayout>
+                <ImageView
+                    android:id="@+id/resort_desc_img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:src="@drawable/ashe"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:id="@+id/resort_desc_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/lato_black"
+                    android:textSize="18sp"
+                    android:textColor="@color/dark"
+                    android:text="Cassa Times Square Cassa Times Square Cassa Times Sq"
+                    android:layout_below="@id/resort_desc_img2" />
+                <TextView
+                    android:id="@+id/resort_desc_hoteltag2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+                    android:text="HOTEL"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:background="@drawable/text_rounded"
+                    android:layout_below="@id/resort_desc_name2"
+                    android:layout_marginLeft="10dp" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/resort_desc_hoteltag2">
+
+                </View>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:elevation="7dp"
+            android:layout_below="@id/card1">
+            <RatingBar
+                android:id="@+id/resort_desc_rating2"
+                style="?android:attr/ratingBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="1"
+                android:theme="@style/RatingBar"
+                android:layout_below="@id/resort_desc_hoteltag2"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card2"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/deal_letter_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="PACKAGE"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/font_normal"
+                    android:fontFamily="@font/lato_black"
+                    android:letterSpacing="1"/>
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/deal_letter_spacing">
+                </View>
+                <TextView
+                    android:id="@+id/resort_desc_pack1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view1"
+                    android:text="Delux Room, 2 Beds"
+                    android:fontFamily="@font/lato_regular"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="7dp"
+                    android:textSize="15dp"
+
+                    />
+                <TextView
+                    android:id="@+id/resort_desc_pack2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/resort_desc_pack1"
+                    android:text="Delux Room, 1 Bed"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_marginLeft="7dp"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    />
+                <TextView
+                    android:id="@+id/resort_desc_pack1price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TK. 10000"
+                    android:fontFamily="@font/lato_bold"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textDirection="inherit"
+                    android:textAlignment="viewEnd"
+                    android:layout_below="@id/view1"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"/>
+                <TextView
+                    android:id="@+id/resort_desc_pack2price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="TK. 5000"
+                    android:fontFamily="@font/lato_bold"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textDirection="inherit"
+                    android:textAlignment="viewEnd"
+                    android:layout_below="@id/resort_desc_pack1price"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/resort_desc_pack2price">
+
+                </View>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card3"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="7dp"
+            android:elevation="7dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_blue_light"
+                android:text="BOOK NOW"
+                android:fontFamily="@font/lato_black"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card4"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/desc_letter_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="DESCRIPTION"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/font_normal"
+                    android:fontFamily="@font/lato_black"
+                    android:letterSpacing="1"/>
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/desc_letter_spacing">
+                </View>
+                <TextView
+                    android:id="@+id/resort_desc_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view2"
+                    android:text="@string/test_desc"
+                    android:fontFamily="@font/lato_regular"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="13dp"
+                    android:layout_marginRight="10dp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/resort_desc_desc">
+
+                </View>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card5"
+            android:layout_margin="7dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/amenities_letter_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="AMENITIES"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/font_normal"
+                    android:fontFamily="@font/lato_black"
+                    android:letterSpacing="1"/>
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/amenities_letter_spacing">
+                </View>
+                <TextView
+                    android:id="@+id/resort_desc_amenities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view3"
+                    android:text="@string/test_desc"
+                    android:fontFamily="@font/lato_regular"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="13dp"
+                    android:layout_marginRight="10dp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/resort_desc_amenities">
+
+                </View>
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card6"
+            android:layout_margin="7dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/contact_letter_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="CONTACT"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/font_normal"
+                    android:fontFamily="@font/lato_black"
+                    android:letterSpacing="1"/>
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/contact_letter_spacing">
+                </View>
+                <TextView
+                    android:id="@+id/resort_desc_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view4"
+                    android:text="House#264, Road#4, Earth, Milkyway"
+                    android:fontFamily="@font/lato_regular"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="13dp"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/resort_desc_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/resort_desc_address"
+                    android:text="dummy@lazypigeon.com"
+                    android:fontFamily="@font/lato_regular"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="13dp"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/resort_desc_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/resort_desc_email"
+                    android:text="+8801745678910"
+                    android:fontFamily="@font/lato_regular"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="13dp"
+                    android:layout_marginRight="10dp"/>
+                <ImageView
+                    android:id="@+id/resort_desc_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="1800dp"
+                    android:layout_below="@id/resort_desc_phone"
+                    android:layout_margin="10dp"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/resort_desc_map">
+
+                </View>
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        
+    </RelativeLayout>
+    
+</ScrollView>

@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- ADD THIS: <item name="colorControlNormal">#FFFFFF</item>-->
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@android:color/holo_blue_dark</item>
+    </style>
+
 </resources>

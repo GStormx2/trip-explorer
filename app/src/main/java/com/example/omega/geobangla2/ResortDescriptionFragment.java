@@ -14,36 +14,44 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class ResortDescriptionFragment extends Fragment {
 
-    private String imageUrl;
-    private String imageName;
-    private int myInt;
-    private StoredResources str = new StoredResources();
-    private ImageView myImage;
-    private TextView myText;
+
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mRef;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String path = "resort/" + StoredResources.getClickedDivision();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mRef = mFirebaseDatabase.getReference(path);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ResortClass resortClass = dataSnapshot.getValue(ResortClass.class);
+                System.out.println(resortClass);
+            }
 
-        imageUrl = str.getStoredImageUrls(StoredResources.getPos());
-        imageName = str.getStoredNames(StoredResources.getPos());
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_resort_desc, container,false);
-        myImage = v.findViewById(R.id.resort_desc_img);
-        myText = v.findViewById(R.id.resort_desc_name);
-
-        Glide.with(getContext())
-                .asBitmap()
-                .load(imageUrl)
-                .into(myImage);
-        myText.setText(imageName);
 
         return v;
     }

@@ -6,4 +6,6 @@
     <color name="dark">#16222d</color>
     <color name="font_normal">#131315</color>
     <color name="grey">#5c5c5c</color>
+    <color name="duskYellow">#ffcf33</color>
+    <color name="lightGrey">#a9a9a9</color>
 </resources>

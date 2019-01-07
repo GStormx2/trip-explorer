@@ -68,7 +68,7 @@ public class DivisionListActivity extends AppCompatActivity {
 
                         String divName = mDivName.getText().toString();
                         StoredResources.setClickedDivision(divName);
-                        Intent intent = new Intent(view.getContext(), TestActivity.class);
+                        Intent intent = new Intent(view.getContext(), LandingPage.class);
                         startActivity(intent);
                     }
 
@@ -106,7 +106,7 @@ public class DivisionListActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         if(adapter != null){
-            adapter.startListening();
+            adapter.stopListening();
         }
     }
 

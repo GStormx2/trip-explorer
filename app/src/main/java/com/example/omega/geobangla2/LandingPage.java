@@ -26,7 +26,7 @@ public class LandingPage extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ResortHomeFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -37,7 +37,7 @@ public class LandingPage extends AppCompatActivity {
 
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
+                            selectedFragment = new ResortHomeFragment();
                             break;
                         case R.id.nav_favorite:
                             selectedFragment = new FavoriteFragment();
@@ -57,4 +57,10 @@ public class LandingPage extends AppCompatActivity {
                     return true;
                 }
             };
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }
