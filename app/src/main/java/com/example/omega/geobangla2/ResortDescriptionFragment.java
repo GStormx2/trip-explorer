@@ -26,18 +26,33 @@ public class ResortDescriptionFragment extends Fragment {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mRef;
-
+    private String Address, Amenities, Description, Email, Image, Map, Name, Pack1, Pack1price, Pack2, Pack2price, Phone,
+            Priceperday, Stars, Type;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String path = "resort/" + StoredResources.getClickedDivision();
+        String path = "resort/" + StoredResources.getClickedDivision() + "/01";
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference(path);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ResortClass resortClass = dataSnapshot.getValue(ResortClass.class);
-                System.out.println(resortClass);
+                Address = dataSnapshot.child("Address").getValue().toString();
+                Amenities = dataSnapshot.child("Amenities").getValue().toString();
+                Description = dataSnapshot.child("Description").getValue().toString();
+                Email = dataSnapshot.child("Email").getValue().toString();
+                Image = dataSnapshot.child("Image").getValue().toString();
+                Map = dataSnapshot.child("Map").getValue().toString();
+                Name = dataSnapshot.child("Name").getValue().toString();
+                Pack1 = dataSnapshot.child("Pack1").getValue().toString();
+                Pack1price = dataSnapshot.child("Pack1price").getValue().toString();
+                Pack2 = dataSnapshot.child("Pack2").getValue().toString();
+                Pack2price = dataSnapshot.child("Pac2price").getValue().toString();
+                Phone = dataSnapshot.child("Phone").getValue().toString();
+                Priceperday = dataSnapshot.child("Priceperday").getValue().toString();
+                Stars = dataSnapshot.child("Stars").getValue().toString();
+                Type = dataSnapshot.child("Type").getValue().toString();
+
             }
 
             @Override
@@ -52,6 +67,7 @@ public class ResortDescriptionFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_resort_desc, container,false);
+
 
         return v;
     }
