@@ -27,6 +27,12 @@ public class ResortHomeFragment extends Fragment {
     FirebaseRecyclerAdapter<ResortClass, ResortListRecycler> adapter;
     String path = "resort/" + StoredResources.getClickedDivision();
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,7 +56,7 @@ public class ResortHomeFragment extends Fragment {
                 holder.setOnClickListener(new ResortListRecycler.CliclListener() {
                     @Override
                     public void onItemCLick(View view, int position) {
-                        StoredResources.setResortPosition(String.valueOf(position));
+                        StoredResources.setResortPosition(position);
 
                         AppCompatActivity activity = (AppCompatActivity) getContext();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();

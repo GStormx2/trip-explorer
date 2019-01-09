@@ -7,13 +7,13 @@ public class StoredResources {
     private static ArrayList<String> storedNames = new ArrayList<>();
     private static int pos;
     private static String clickedDivision;
-    private static String resortPosition;
+    private static int resortPosition;
 
-    public static String getResortPosition() {
+    public static int getResortPosition() {
         return resortPosition;
     }
 
-    public static void setResortPosition(String resortPosition) {
+    public static void setResortPosition(int resortPosition) {
         StoredResources.resortPosition = resortPosition;
     }
 

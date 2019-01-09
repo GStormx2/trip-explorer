@@ -35,6 +35,7 @@ public class DivisionListActivity extends AppCompatActivity {
     DatabaseReference mRef;
     FirebaseRecyclerOptions<DivisionClass> options;
     FirebaseRecyclerAdapter<DivisionClass, DivListRecycler> adapter;
+    ArrayList<ResortClass> resortClasses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class DivisionListActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Divisions");
         //
+
         mRecyclerView = findViewById(R.id.divlist_recylerview);
         mRecyclerView.setHasFixedSize(true);
 
@@ -90,7 +92,6 @@ public class DivisionListActivity extends AppCompatActivity {
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-
 
     }
 

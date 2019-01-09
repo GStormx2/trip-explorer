@@ -4,6 +4,7 @@ import android.drm.DrmStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +24,8 @@ public class LandingPage extends AppCompatActivity {
         actionBar.setTitle("Home");
 
         //setting back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+        //actionBar.setDisplayShowHomeEnabled(true);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ResortHomeFragment()).commit();
     }
@@ -53,14 +54,15 @@ public class LandingPage extends AppCompatActivity {
                             break;
                     }
 
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
                 }
             };
 
-    @Override
+    /*@Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
-    }
+    }*/
 }

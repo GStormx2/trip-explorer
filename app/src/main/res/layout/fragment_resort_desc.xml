@@ -191,6 +191,7 @@
             android:elevation="7dp">
 
             <Button
+                android:id="@+id/rest_desc_booknowbtn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@android:color/holo_blue_light"

@@ -1,8 +1,22 @@
 package com.example.omega.geobangla2;
 
 public class ResortClass {
-   private String Address, Amenities, Description, Email, Image, Map, Name, Pack1, Pack1price, Pack2, Pack2price, Phone,
-        Priceperday, Stars, Type;
+   private String Address;
+    private String Amenities;
+    private String Description;
+    private String Email;
+    private String Id;
+    private String Image;
+    private String Map;
+    private String Name;
+    private String Pack1;
+    private String Pack1price;
+    private String Pack2;
+    private String Pack2price;
+    private String Phone;
+    private String Priceperday;
+    private String Stars;
+    private String Type;
 
     public ResortClass(){
 
@@ -127,4 +141,13 @@ public class ResortClass {
     public void setType(String type) {
         Type = type;
     }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
 }

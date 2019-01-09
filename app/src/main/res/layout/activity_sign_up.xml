@@ -16,9 +16,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="10dp"
         app:cardCornerRadius="8dp"
         android:elevation="10dp">
 
@@ -38,7 +36,7 @@
                 android:fontFamily="@font/lato_black"/>
 
             <EditText
-                android:id="@+id/email_field"
+                android:id="@+id/signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="enter email"
@@ -55,7 +53,7 @@
                 android:fontFamily="@font/lato_black"/>
 
             <EditText
-                android:id="@+id/password_field"
+                android:id="@+id/signup_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="enter password"
@@ -64,15 +62,7 @@
                 android:inputType="textPassword"
                 android:layout_marginBottom="20dp"/>
             <Button
-                android:id="@+id/login_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/btn_rounded"
-                android:text="LOGIN"
-                android:textColor="#FFFFFF"/>
-            <Button
-                android:id="@+id/ca_button"
-                android:layout_marginTop="10dp"
+                android:id="@+id/signup_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/btn_rounded"
@@ -81,9 +71,9 @@
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
+    
     <ProgressBar
-        android:id="@+id/progress_bar2"
+        android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
