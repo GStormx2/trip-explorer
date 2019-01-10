@@ -8,6 +8,59 @@ public class StoredResources {
     private static int pos;
     private static String clickedDivision;
     private static int resortPosition;
+    private static int packOne, packTwo, pricePerDay;
+    private static String resortTag, resortStars;
+
+    public static String getResortTag() {
+        return resortTag;
+    }
+
+    public static void setResortTag(String resortTag) {
+        StoredResources.resortTag = resortTag;
+    }
+
+    public static String getResortStars() {
+        return resortStars;
+    }
+
+    public static void setResortStars(String resortStars) {
+        StoredResources.resortStars = resortStars;
+    }
+
+    public static String getResortName() {
+        return resortName;
+    }
+
+    public static void setResortName(String resortName) {
+        StoredResources.resortName = resortName;
+    }
+
+    private static String resortName;
+
+    public static int getPackOne() {
+        return packOne;
+    }
+
+    public static void setPackOne(int packOne) {
+        StoredResources.packOne = packOne;
+    }
+
+    public static int getPackTwo() {
+        return packTwo;
+    }
+
+    public static void setPackTwo(int packTwo) {
+        StoredResources.packTwo = packTwo;
+    }
+
+    public static int getPricePerDay() {
+        return pricePerDay;
+    }
+
+    public static void setPricePerDay(int pricePerDay) {
+        StoredResources.pricePerDay = pricePerDay;
+    }
+
 
     public static int getResortPosition() {
         return resortPosition;
