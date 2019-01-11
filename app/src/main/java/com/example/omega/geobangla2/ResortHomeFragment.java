@@ -39,9 +39,7 @@ public class ResortHomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container,false);
 
         mRecyclerView = v.findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference(path);
@@ -82,10 +80,15 @@ public class ResortHomeFragment extends Fragment {
                 return new ResortListRecycler(view);
             }
         };
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext()){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
         return v;
     }
 

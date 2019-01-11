@@ -1,65 +1,101 @@
 package com.example.omega.geobangla2;
 
 public class BookingClass {
-    private String Name;
-    private String Tag;
-    private String Stars;
-    private String BedType;
-    private String RoomCount;
-    private String CheckInDate;
-    private String CheckOutDate;
-    private String TotalPrice;
-    private String Uid;
+    private String name;
+    private String tag;
+    private String stars;
+    private String bedType;
+    private String roomCount;
+    private String checkInDate;
+    private String checkOutDate;
+    private String totalPrice;
+    private String uid;
 
     public BookingClass(){
 
     }
 
     public BookingClass(String Name, String Tag, String Stars, String BedType, String RoomCount, String CheckInDate, String CheckOutDate, String TotalPrice, String Uid) {
-        this.Name = Name;
-        this.Tag = Tag;
-        this.Stars = Stars;
-        this.BedType = BedType;
-        this.RoomCount = RoomCount;
-        this.CheckInDate = CheckInDate;
-        this.CheckOutDate = CheckOutDate;
-        this.TotalPrice = TotalPrice;
-        this.Uid = Uid;
+        this.name = Name;
+        this.tag = Tag;
+        this.stars = Stars;
+        this.bedType = BedType;
+        this.roomCount = RoomCount;
+        this.checkInDate = CheckInDate;
+        this.checkOutDate = CheckOutDate;
+        this.totalPrice = TotalPrice;
+        this.uid = Uid;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getTag() {
-        return Tag;
+        return tag;
     }
 
     public String getStars() {
-        return Stars;
+        return stars;
     }
 
     public String getBedType() {
-        return BedType;
+        return bedType;
     }
 
     public String getRoomCount() {
-        return RoomCount;
+        return roomCount;
     }
 
     public String getCheckInDate() {
-        return CheckInDate;
+        return checkInDate;
     }
 
     public String getCheckOutDate() {
-        return CheckOutDate;
+        return checkOutDate;
     }
 
     public String getTotalPrice() {
-        return TotalPrice;
+        return totalPrice;
     }
 
     public String getUid() {
-        return Uid;
+        return uid;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public void setStars(String stars) {
+        this.stars = stars;
+    }
+
+    public void setBedType(String bedType) {
+        this.bedType = bedType;
+    }
+
+    public void setRoomCount(String roomCount) {
+        this.roomCount = roomCount;
+    }
+
+    public void setCheckInDate(String checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public void setCheckOutDate(String checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

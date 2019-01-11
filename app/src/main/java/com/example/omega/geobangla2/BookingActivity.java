@@ -291,7 +291,7 @@ public class BookingActivity extends AppCompatActivity {
                             String.valueOf(total_price),
                             user_id
                     );
-                    mRef = FirebaseDatabase.getInstance().getReference("bookings");
+                    mRef = FirebaseDatabase.getInstance().getReference("bookings/" + user_id);
                     mRef.push().setValue(bookingClass);
 
 
