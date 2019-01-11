@@ -193,7 +193,7 @@ public class BookingActivity extends AppCompatActivity {
                         flag = 1;
                     }
                     else{
-                        day_price = (int) day_count * StoredResources.getPricePerDay();
+                        day_price = (int) day_count * room_price;
                         String temp_string = "Tk. " + day_price;
                         booking_day_price.setText(temp_string);
                         flag = 1;
@@ -256,7 +256,7 @@ public class BookingActivity extends AppCompatActivity {
                         flag = 1;
                     }
                     else{
-                        day_price = (int) day_count * StoredResources.getPricePerDay();
+                        day_price = (int) day_count * room_price;
                         String temp_string = "Tk. " + day_price;
                         booking_day_price.setText(temp_string);
                         flag = 1;
@@ -312,7 +312,7 @@ public class BookingActivity extends AppCompatActivity {
             Toast.makeText(BookingActivity.this, "Please Check Fields again!", Toast.LENGTH_LONG).show();
         }
         else{
-            total_price = bed_price + room_price + day_price;
+            total_price = day_price;
             total_price =  total_price + (int)Math.ceil(0.15 * total_price);
             String temp = "Tk. " + String.valueOf(total_price);
             booking_total_price.setText(temp);

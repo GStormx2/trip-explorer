@@ -47,9 +47,6 @@ public class DivisionListActivity extends AppCompatActivity {
         //
 
         mRecyclerView = findViewById(R.id.divlist_recylerview);
-        mRecyclerView.setHasFixedSize(true);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("divisions");
@@ -88,10 +85,15 @@ public class DivisionListActivity extends AppCompatActivity {
                 return new DivListRecycler(view);
             }
         };
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
 
     }
 
