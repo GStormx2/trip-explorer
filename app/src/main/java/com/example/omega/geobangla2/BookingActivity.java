@@ -323,7 +323,7 @@ public class BookingActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         user_id = firebaseUser.getUid();
         mRef = FirebaseDatabase.getInstance().getReference("users");
-        Query query = mRef.orderByChild("Uid").equalTo(user_id);
+        Query query = mRef.orderByChild("uid").equalTo(user_id);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override

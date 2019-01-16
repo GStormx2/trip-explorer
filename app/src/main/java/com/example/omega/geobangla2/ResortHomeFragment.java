@@ -14,6 +14,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,8 @@ public class ResortHomeFragment extends Fragment {
     FirebaseRecyclerAdapter<ResortClass, ResortListRecycler> adapter;
     String path = "resort/" + StoredResources.getClickedDivision();
 
+    TextView hotellist_welcome, hotellist_desc;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,15 @@ public class ResortHomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container,false);
+
+        hotellist_welcome = v.findViewById(R.id.hotellist_welcome);
+        hotellist_desc = v.findViewById(R.id.hotellist_desc);
+
+        String welcome_text = StoredResources.getClickedDivision() + " Hotels and Resorts";
+        String welcome_desc = "Showing results for Hotels and Resorts in " + StoredResources.getClickedDivision() + ". Select the place you wish to stay";
+
+        hotellist_welcome.setText(welcome_text);
+        hotellist_desc.setText(welcome_desc);
 
         mRecyclerView = v.findViewById(R.id.recycler_view);
         
@@ -61,7 +74,6 @@ public class ResortHomeFragment extends Fragment {
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         ResortDescriptionFragment fragment = new ResortDescriptionFragment();
                         fragmentTransaction.replace(R.id.fragment_container, fragment);
-                        fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }

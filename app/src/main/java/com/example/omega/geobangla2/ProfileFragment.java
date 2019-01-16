@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.support.v7.widget.helper.ItemTouchUIUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +43,9 @@ public class ProfileFragment extends Fragment {
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
-    FirebaseRecyclerOptions<BookingClass> options;
-    FirebaseRecyclerAdapter<BookingClass, BookingListRecycler> adapter;
+    //FirebaseRecyclerOptions<BookingClass> options;
+    //FirebaseRecyclerAdapter<BookingClass, BookingListRecycler> adapter;
+    BookingListRecycler adapter;
 
     Users user = new Users();
 
@@ -73,32 +76,7 @@ public class ProfileFragment extends Fragment {
         System.out.println("THIS IS PATH:" + path);
         mRef = mFirebaseDatabase.getReference(path);
 
-        options = new FirebaseRecyclerOptions.Builder<BookingClass>()
-                .setQuery(mRef, BookingClass.class)
-                .build();
-        adapter = new FirebaseRecyclerAdapter<BookingClass, BookingListRecycler>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull BookingListRecycler holder, int position, @NonNull BookingClass model) {
-                holder.setDetails(model.getName(), model.getTag(), model.getStars(), model.getBedType(), model.getRoomCount(), model.getCheckInDate(), model.getCheckOutDate(), model.getTotalPrice(), model.getUid());
-            }
-
-            @NonNull
-            @Override
-            public BookingListRecycler onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.booking_item_list, viewGroup, false);
-                return new BookingListRecycler(view);
-            }
-        };
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext()){
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        };
-        adapter.startListening();
-        mRecyclerView.setAdapter(adapter);
-        mRecyclerView.setLayoutManager(layoutManager);
+        setUpRecyclerView();
 
         return v;
     }
@@ -128,11 +106,38 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    private void setUpRecyclerView(){
+        FirebaseRecyclerOptions<BookingClass> options = new FirebaseRecyclerOptions.Builder<BookingClass>()
+                .setQuery(mRef, BookingClass.class)
+                .build();
+        adapter = new BookingListRecycler(options);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext()){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        adapter.startListening();
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                adapter.deleteItem(viewHolder.getAdapterPosition());
+            }
+        }).attachToRecyclerView(mRecyclerView);
+    }
     private void loadUserDetails(){
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         user_id = firebaseUser.getUid();
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("users");
-        Query query = mRef.orderByChild("Uid").equalTo(user_id);
+        Query query = mRef.orderByChild("uid").equalTo(user_id);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -159,6 +164,7 @@ public class ProfileFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
         Toast.makeText(getActivity(), " USER ID: " + user_id, Toast.LENGTH_LONG).show();
     }

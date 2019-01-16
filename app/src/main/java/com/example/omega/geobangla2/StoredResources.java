@@ -10,6 +10,23 @@ public class StoredResources {
     private static int resortPosition;
     private static int packOne, packTwo, pricePerDay;
     private static String resortTag, resortStars;
+    private static String coverPhotoUrl, profilePhotoUrl;
+
+    public static String getCoverPhotoUrl() {
+        return coverPhotoUrl;
+    }
+
+    public static void setCoverPhotoUrl(String coverPhotoUrl) {
+        StoredResources.coverPhotoUrl = coverPhotoUrl;
+    }
+
+    public static String getProfilePhotoUrl() {
+        return profilePhotoUrl;
+    }
+
+    public static void setProfilePhotoUrl(String profilePhotoUrl) {
+        StoredResources.profilePhotoUrl = profilePhotoUrl;
+    }
 
     public static String getResortTag() {
         return resortTag;

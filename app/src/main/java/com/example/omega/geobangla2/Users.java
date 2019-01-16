@@ -12,6 +12,15 @@ public class Users {
 
     }
 
+    public Users(String coverPic, String email, String name, String phone, String profilePic, String uid) {
+        CoverPic = coverPic;
+        Email = email;
+        Name = name;
+        Phone = phone;
+        ProfilePic = profilePic;
+        Uid = uid;
+    }
+
     public String getCoverPic() {
         return CoverPic;
     }

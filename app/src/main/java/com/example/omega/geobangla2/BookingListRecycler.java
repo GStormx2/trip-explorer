@@ -12,17 +12,38 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-class BookingListRecycler extends RecyclerView.ViewHolder {
+class BookingListRecycler extends FirebaseRecyclerAdapter<BookingClass, BookingListRecycler.BookingHolder> {
 
-    View view;
-    public BookingListRecycler(@NonNull View itemView) {
-        super(itemView);
 
-        view = itemView;
+    public BookingListRecycler(@NonNull FirebaseRecyclerOptions<BookingClass> options) {
+        super(options);
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull BookingHolder holder, int position, @NonNull BookingClass model) {
+        holder.bookinglist_checkin.setText(model.getCheckInDate());
+        holder.bookinglist_name.setText(model.getName());
+        holder.bookinglist_tag.setText(model.getTag());
+        holder.bookinglist_rating.setNumStars(Integer.parseInt(model.getStars()));
+        holder.bookinglist_rating.setRating(Integer.parseInt(model.getStars()));
+        holder.bookinglist_roomtype.setText(model.getBedType());
+        holder.bookinglist_guestcount.setText(model.getRoomCount());
+        holder.bookinglist_checkout.setText(model.getCheckOutDate());
+        holder.bookinglist_price.setText(model.getTotalPrice());
+    }
+
+    @NonNull
+    @Override
+    public BookingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.booking_item_list, viewGroup, false);
+        return new BookingHolder(v);
+    }
+    public void deleteItem(int position){
+        getSnapshots().getSnapshot(position).getRef().removeValue();
 
     }
 
-    public void setDetails(String Name, String Tag, String Stars, String BedType, String RoomCount, String CheckInDate, String CheckOutDate, String TotalPrice, String Uid) {
+    class BookingHolder extends RecyclerView.ViewHolder{
         TextView bookinglist_name;
         TextView bookinglist_tag;
         RatingBar bookinglist_rating;
@@ -31,25 +52,21 @@ class BookingListRecycler extends RecyclerView.ViewHolder {
         TextView bookinglist_checkin;
         TextView bookinglist_checkout;
         TextView bookinglist_price;
-        bookinglist_checkin = view.findViewById(R.id.bookinglist_checkin);
-        bookinglist_name = view.findViewById(R.id.bookinglist_name);
-        bookinglist_tag = view.findViewById(R.id.bookinglist_tag);
-        bookinglist_roomtype = view.findViewById(R.id.bookinglist_roomtype);
-        bookinglist_guestcount = view.findViewById(R.id.bookinglist_guestcount);
-        bookinglist_checkout = view.findViewById(R.id.bookinglist_checkout);
-        bookinglist_price = view.findViewById(R.id.bookinglist_price);
 
-        bookinglist_rating = view.findViewById(R.id.bookinglist_rating);
+        public BookingHolder(@NonNull View itemView) {
+            super(itemView);
+            View view = itemView;
+            bookinglist_checkin = view.findViewById(R.id.bookinglist_checkin);
+            bookinglist_name = view.findViewById(R.id.bookinglist_name);
+            bookinglist_tag = view.findViewById(R.id.bookinglist_tag);
+            bookinglist_roomtype = view.findViewById(R.id.bookinglist_roomtype);
+            bookinglist_guestcount = view.findViewById(R.id.bookinglist_guestcount);
+            bookinglist_checkout = view.findViewById(R.id.bookinglist_checkout);
+            bookinglist_price = view.findViewById(R.id.bookinglist_price);
 
-        bookinglist_checkin.setText(CheckInDate);
-        bookinglist_name.setText(Name);
-        bookinglist_tag.setText(Tag);
-        bookinglist_rating.setNumStars(Integer.parseInt(Stars));
-        bookinglist_rating.setRating(Integer.parseInt(Stars));
-        bookinglist_roomtype.setText(BedType);
-        bookinglist_guestcount.setText(RoomCount);
-        bookinglist_checkout.setText(CheckOutDate);
-        bookinglist_price.setText(TotalPrice);
+            bookinglist_rating = view.findViewById(R.id.bookinglist_rating);
+        }
     }
+
 }
 

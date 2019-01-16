@@ -15,14 +15,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -37,6 +42,10 @@ public class DivisionListActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<DivisionClass, DivListRecycler> adapter;
     ArrayList<ResortClass> resortClasses = new ArrayList<>();
 
+    TextView divlist_welcome, divlist_desc;
+    String user_id;
+    Users user = new Users();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +54,10 @@ public class DivisionListActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Divisions");
         //
+
+        divlist_welcome = findViewById(R.id.divlist_welcome);
+        divlist_desc = findViewById(R.id.divlist_desc);
+        loadUserDetails();
 
         mRecyclerView = findViewById(R.id.divlist_recylerview);
 
@@ -95,6 +108,31 @@ public class DivisionListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(layoutManager);
 
+    }
+    private void loadUserDetails(){
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        user_id = firebaseUser.getUid();
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("users");
+        Query query = mRef.orderByChild("uid").equalTo(user_id);
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapShot: dataSnapshot.getChildren()){
+                        user = snapShot.getValue(Users.class);
+                    }
+                }
+                String temp = "Welcome, " + user.getName();
+                divlist_welcome.setText(temp);
+                divlist_desc.setText("Choose a division from the list down below to show division wise Hotels and Resort results");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

@@ -168,6 +168,7 @@ public class ResortDescriptionFragment extends Fragment {
         textView_pack2price.setText(p2price);
 
         textView_desc.setText(resortClass.getDescription());
+        textView_amenities.setText(resortClass.getAmenities());
         textView_email.setText(resortClass.getEmail());
         textView_phone.setText(resortClass.getPhone());
         Glide.with(getContext())
