@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/divison_img"
-        android:text="Dhaka"
+
         android:textSize="25sp"
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/font_normal"/>
@@ -40,9 +40,8 @@
         android:layout_marginTop="205dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="8dp"
-        android:text="@string/test_desc"
         android:fontFamily="@font/lato_regular"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:paddingBottom="10dp"
         android:textColor="@color/font_normal"/>
 

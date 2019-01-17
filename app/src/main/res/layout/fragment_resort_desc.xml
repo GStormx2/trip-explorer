@@ -238,7 +238,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="13dp"
+                    android:textSize="15sp"
                     android:layout_marginRight="10dp"/>
 
                 <View
@@ -290,7 +290,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="13dp"
+                    android:textSize="15sp"
                     android:layout_marginRight="10dp"/>
 
                 <View
@@ -343,7 +343,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="13dp"
+                    android:textSize="15sp"
                     android:layout_marginRight="10dp"/>
                 <TextView
                     android:id="@+id/resort_desc_email"
@@ -354,7 +354,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="13dp"
+                    android:textSize="15sp"
                     android:layout_marginRight="10dp"/>
                 <TextView
                     android:id="@+id/resort_desc_phone"
@@ -365,7 +365,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="13dp"
+                    android:textSize="15sp"
                     android:layout_marginRight="10dp"/>
                 <ImageView
                     android:id="@+id/resort_desc_map"

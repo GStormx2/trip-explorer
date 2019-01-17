@@ -10,7 +10,7 @@
 
     <!-- ADD THIS: <item name="colorControlNormal">#FFFFFF</item>-->
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlActivated">@android:color/holo_blue_dark</item>
+        <item name="colorControlActivated">#FFC107</item>
     </style>
 
 </resources>

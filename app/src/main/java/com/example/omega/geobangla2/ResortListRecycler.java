@@ -45,7 +45,14 @@ public class ResortListRecycler extends RecyclerView.ViewHolder {
                 .load(image)
                 .into(mImage);
         mName.setText(name);
+        if(type.equals("Hotel")){
+            mType.setBackgroundResource(R.drawable.text_rounded);
+        }
+        else{
+            mType.setBackgroundResource(R.drawable.text_rounded_green);
+        }
         mType.setText(type);
+
         mPrice.setText(pricetostring);
         mPack.setText(pack);
         mStars.setRating(Integer.parseInt(stars));
