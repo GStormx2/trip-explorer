@@ -1,6 +1,7 @@
 package com.example.omega.geobangla2;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.support.v7.widget.helper.ItemTouchUIUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,11 +43,15 @@ public class ProfileFragment extends Fragment {
     String user_id;
 
     RecyclerView mRecyclerView;
+    RecyclerView cardRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
     //FirebaseRecyclerOptions<BookingClass> options;
     //FirebaseRecyclerAdapter<BookingClass, BookingListRecycler> adapter;
     BookingListRecycler adapter;
+    CardListRecycler cardAdapter;
+
+    Button card_addbutton;
 
     Users user = new Users();
 
@@ -64,9 +70,11 @@ public class ProfileFragment extends Fragment {
         profile_name = v.findViewById(R.id.profile_name);
         profile_email = v.findViewById(R.id.profile_email);
         profile_phone = v.findViewById(R.id.profile_phone);
+        card_addbutton = v.findViewById(R.id.card_addbutton);
 
 
         mRecyclerView = v.findViewById(R.id.profile_recyclerview);
+        cardRecyclerView = v.findViewById(R.id.profile_cardrecyclerview);
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         user_id = firebaseUser.getUid();
@@ -76,7 +84,16 @@ public class ProfileFragment extends Fragment {
         System.out.println("THIS IS PATH:" + path);
         mRef = mFirebaseDatabase.getReference(path);
 
+        setUpCardRecyclerView();
         setUpRecyclerView();
+
+        card_addbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), CardActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }
@@ -104,6 +121,31 @@ public class ProfileFragment extends Fragment {
         if(adapter != null){
             adapter.startListening();
         }
+    }
+    private void setUpCardRecyclerView(){
+        String tempPath = "cards/" + user_id;
+        DatabaseReference cardRef = FirebaseDatabase.getInstance().getReference(tempPath);
+        FirebaseRecyclerOptions<CardClass> options = new FirebaseRecyclerOptions.Builder<CardClass>()
+                .setQuery(cardRef, CardClass.class)
+                .build();
+        cardAdapter = new CardListRecycler(options);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        cardAdapter.startListening();
+        cardRecyclerView.setAdapter(cardAdapter);
+        cardRecyclerView.setLayoutManager(layoutManager);
+
+        cardAdapter.setOnItemClickListener(new CardListRecycler.OnItemClickListener() {
+            @Override
+            public void onItemClick(DataSnapshot dataSnapshot, int position) {
+
+            }
+
+            @Override
+            public void onItemLongClick(DataSnapshot dataSnapshot, int position) {
+                cardAdapter.deleteItem(position);
+            }
+        });
+
     }
 
     private void setUpRecyclerView(){

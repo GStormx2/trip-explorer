@@ -13,4 +13,12 @@
         <item name="colorControlActivated">#FFC107</item>
     </style>
 
+    <string name="name">Spinner Example</string>
+    <string-array name="types">
+        <item>Visa</item>
+        <item>Master Card</item>
+        <item>PayPal</item>
+        <item>American Express</item>
+    </string-array>
+
 </resources>

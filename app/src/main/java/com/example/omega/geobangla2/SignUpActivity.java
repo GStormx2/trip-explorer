@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ActionBar actionBar = getSupportActionBar();
-
+        actionBar.setTitle("Create New Account");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
@@ -106,7 +106,7 @@ public class SignUpActivity extends AppCompatActivity {
                         mSignUpButton.setEnabled(true);
                     }
                 }
-            }
+            };
         });
 
     }
