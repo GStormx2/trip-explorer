@@ -11,6 +11,15 @@ public class StoredResources {
     private static int packOne, packTwo, pricePerDay;
     private static String resortTag, resortStars;
     private static String coverPhotoUrl, profilePhotoUrl;
+    private static String totalAmount;
+
+    public static String getTotalAmount() {
+        return totalAmount;
+    }
+
+    public static void setTotalAmount(String totalAmount) {
+        StoredResources.totalAmount = totalAmount;
+    }
 
     public static String getCoverPhotoUrl() {
         return coverPhotoUrl;
