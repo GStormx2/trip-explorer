@@ -1,6 +1,9 @@
 package com.example.omega.geobangla2;
 
-public class BookingClass {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class BookingClass implements Parcelable {
     private String name;
     private String tag;
     private String stars;
@@ -26,6 +29,30 @@ public class BookingClass {
         this.totalPrice = TotalPrice;
         this.uid = Uid;
     }
+
+    protected BookingClass(Parcel in) {
+        name = in.readString();
+        tag = in.readString();
+        stars = in.readString();
+        bedType = in.readString();
+        roomCount = in.readString();
+        checkInDate = in.readString();
+        checkOutDate = in.readString();
+        totalPrice = in.readString();
+        uid = in.readString();
+    }
+
+    public static final Creator<BookingClass> CREATOR = new Creator<BookingClass>() {
+        @Override
+        public BookingClass createFromParcel(Parcel in) {
+            return new BookingClass(in);
+        }
+
+        @Override
+        public BookingClass[] newArray(int size) {
+            return new BookingClass[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -97,5 +124,23 @@ public class BookingClass {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(tag);
+        dest.writeString(stars);
+        dest.writeString(bedType);
+        dest.writeString(roomCount);
+        dest.writeString(checkInDate);
+        dest.writeString(checkOutDate);
+        dest.writeString(totalPrice);
+        dest.writeString(uid);
     }
 }

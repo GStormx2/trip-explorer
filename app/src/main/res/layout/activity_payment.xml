@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<ScrollView
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -104,16 +104,14 @@
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/card_holder"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Your card holder. Select a card to autofill information. You can also fill them up manually."
-                    android:textSize="12dp"
+                    android:textSize="15dp"
                     android:textColor="@color/font_normal"
                     android:fontFamily="@font/lato_regular"
                     android:textStyle="bold"
                     android:layout_marginTop="17dp"
-                    android:layout_marginLeft="7dp"
-                    android:layout_marginRight="7dp"
                     android:layout_marginBottom="17dp"/>
 
                 <android.support.v7.widget.RecyclerView
@@ -164,37 +162,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/lato_bold"
-                    android:text="Expiry Date"
+                    android:text="Expiry Date:"
                     android:textColor="@color/font_normal" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="Month:"
-                    android:textColor="@color/font_normal" />
 
                 <EditText
-                    android:id="@+id/payment_month"
+                    android:id="@+id/payment_expdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Month here. Format: MM"
-                    android:inputType="number" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="Year:"
-                    android:textColor="@color/font_normal" />
-
-                <EditText
-                    android:id="@+id/payment_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Year here. Format: YYYY"
-                    android:inputType="number" />
+                    android:hint="Format: MM/YYYY"
+                    android:inputType="text" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -224,4 +201,4 @@
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

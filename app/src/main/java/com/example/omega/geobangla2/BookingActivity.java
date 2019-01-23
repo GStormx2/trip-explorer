@@ -1,5 +1,6 @@
 package com.example.omega.geobangla2;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.graphics.Color;
@@ -291,10 +292,11 @@ public class BookingActivity extends AppCompatActivity {
                             String.valueOf(total_price),
                             user_id
                     );
-                    mRef = FirebaseDatabase.getInstance().getReference("bookings/" + user_id);
-                    mRef.push().setValue(bookingClass);
-
-
+                    /*mRef = FirebaseDatabase.getInstance().getReference("bookings/" + user_id);
+                    mRef.push().setValue(bookingClass);*/
+                    Intent intent = new Intent(BookingActivity.this, PaymentActivity.class);
+                    intent.putExtra("booking information", bookingClass);
+                    startActivity(intent);
                     finish();
                 }
             }
