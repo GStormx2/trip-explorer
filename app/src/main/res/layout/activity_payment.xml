@@ -35,12 +35,65 @@
             android:text="Payment Method"
             android:textColor="@color/font_normal"
             android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="TOTAL"
+            android:letterSpacing="1"
+            android:textColor="@color/font_normal"
+            android:fontFamily="@font/lato_bold"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingBottom="10dp"
+            android:elevation="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp">
+
+                <TextView
+                    android:id="@+id/payment_totalprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="TK. 0"
+                    android:textSize="23sp"
+                    android:textColor="@color/colorPrimaryDark"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="15% VAT added"
+                    android:textSize="12sp"
+                    android:layout_below="@id/payment_totalprice"/>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="PAYMENT"
+            android:letterSpacing="1"
+            android:textColor="@color/font_normal"
+            android:fontFamily="@font/lato_bold"/>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:elevation="8dp">
 
@@ -68,26 +121,33 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
                 </android.support.v7.widget.RecyclerView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_bold"
-                    android:layout_marginTop="20dp"
-                    android:text="Type:"
-                    android:textColor="@color/font_normal" />
-
-                <EditText
-                    android:id="@+id/payment_type"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="card type here"
-                    android:inputType="text" />
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_bold"
+                        android:paddingRight="10dp"
+                        android:text="Type:"
+                        android:textColor="@color/font_normal" />
+
+                    <Spinner
+                        android:id="@+id/payment_namespinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </Spinner>
+                </LinearLayout>
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/lato_bold"
                     android:text="Card Number:"
                     android:textColor="@color/font_normal" />
@@ -150,61 +210,18 @@
                     android:layout_height="wrap_content"
                     android:hint="Card verification value here"
                     android:inputType="number" />
-
+                <Button
+                    android:id="@+id/payment_bookbutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="BOOK NOW"
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="TOTAL"
-            android:letterSpacing="1"
-            android:textColor="@color/font_normal"
-            android:fontFamily="@font/lato_bold"/>
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:paddingBottom="10dp"
-            android:elevation="8dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="20dp">
-
-                <TextView
-                    android:id="@+id/payment_totalprice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentLeft="true"
-                    android:text="TK. 0"
-                    android:textSize="23sp"
-                    android:textColor="@color/colorPrimaryDark"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="15% VAT added"
-                    android:textSize="12sp"
-                    android:layout_below="@id/payment_totalprice"/>
-                <Button
-                    android:id="@+id/booking_confirmbutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="BOOK NOW"
-                    android:textStyle="bold"/>
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 </ScrollView>
