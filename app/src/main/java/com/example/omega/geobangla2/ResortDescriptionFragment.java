@@ -1,6 +1,7 @@
 package com.example.omega.geobangla2;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,8 +16,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,6 +58,9 @@ public class ResortDescriptionFragment extends Fragment {
     TextView textView_email ;
     TextView textView_phone ;
     ImageView imageView_map;
+    ImageView resort_desc_fav;
+
+    String user_id;
 
 
     private ArrayList<ResortClass> rc = new ArrayList<>();
@@ -79,6 +86,11 @@ public class ResortDescriptionFragment extends Fragment {
         textView_email = v.findViewById(R.id.resort_desc_email);
         textView_phone = v.findViewById(R.id.resort_desc_phone);
         imageView_map = v.findViewById(R.id.resort_desc_map);
+        resort_desc_fav = v.findViewById(R.id.resort_desc_fav);
+
+
+        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        user_id = firebaseUser.getUid();
 
         int temp = StoredResources.getResortPosition() + 1;
         String temp_string = String.valueOf(temp);
@@ -112,6 +124,7 @@ public class ResortDescriptionFragment extends Fragment {
 
             }
         });
+        checkFavorite();
 
         button_booknowbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +132,30 @@ public class ResortDescriptionFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), BookingActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        resort_desc_fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView imageView = (ImageView) v;
+                //assert(R.id.resort_desc_fav == imageView.getId());
+
+                Integer integer = (Integer) imageView.getTag();
+                integer = integer == null ? 0 : integer;
+
+                if(integer == R.drawable.ic_favorite_black_24dp_pink){
+                    Toast.makeText(getContext(), "Already in Favorites!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    String temp = "favorite/" + user_id + "/" + StoredResources.getClickedDivision();
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(temp);
+                    temp = String.valueOf(StoredResources.getResortPosition() + 1);
+                    databaseReference.child(temp).setValue(resortClass);
+
+                    Toast.makeText(getContext(), "Added to Favorites", Toast.LENGTH_SHORT).show();
+                    resort_desc_fav.setImageResource(R.drawable.ic_favorite_black_24dp_pink);
+                }
             }
         });
 
@@ -146,6 +183,26 @@ public class ResortDescriptionFragment extends Fragment {
 
     */
         return v;
+    }
+
+    private void checkFavorite(){
+        String path = "favorite/" + user_id + "/" + StoredResources.getClickedDivision();
+        mRef = FirebaseDatabase.getInstance().getReference(path);
+        String temp = String.valueOf(StoredResources.getResortPosition() + 1);
+        Query query = mRef.orderByChild("id").equalTo(temp);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    resort_desc_fav.setImageResource(R.drawable.ic_favorite_black_24dp_pink);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void setDetials(ResortClass resortClass){

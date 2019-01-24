@@ -23,6 +23,15 @@ class BookingListRecycler extends FirebaseRecyclerAdapter<BookingClass, BookingL
     protected void onBindViewHolder(@NonNull BookingHolder holder, int position, @NonNull BookingClass model) {
         holder.bookinglist_checkin.setText(model.getCheckInDate());
         holder.bookinglist_name.setText(model.getName());
+
+        holder.bookinglist_tag.setText(model.getTag());
+        if(model.getTag().equals("Hotel")){
+            holder.bookinglist_tag.setBackgroundResource(R.drawable.text_rounded);
+        }
+        else{
+            holder.bookinglist_tag.setBackgroundResource(R.drawable.text_rounded_green);
+        }
+
         holder.bookinglist_tag.setText(model.getTag());
         holder.bookinglist_rating.setNumStars(Integer.parseInt(model.getStars()));
         holder.bookinglist_rating.setRating(Integer.parseInt(model.getStars()));

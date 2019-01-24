@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 public class LandingPage extends AppCompatActivity {
-
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +21,9 @@ public class LandingPage extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
+
 
         //setting back button in action bar
         //actionBar.setDisplayHomeAsUpEnabled(true);
@@ -40,18 +41,23 @@ public class LandingPage extends AppCompatActivity {
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
                             selectedFragment = new ResortHomeFragment();
+                            actionBar.setTitle("Home");
                             break;
                         case R.id.nav_favorite:
                             selectedFragment = new FavoriteFragment();
+                            actionBar.setTitle("Favorites");
                             break;
                         case R.id.nav_search:
                             selectedFragment = new SearchFragment();
+                            actionBar.setTitle("Explore");
                             break;
                         case R.id.nav_profile:
                             selectedFragment = new ProfileFragment();
+                            actionBar.setTitle("Profile");
                             break;
                         case R.id.nav_credit:
                             selectedFragment = new CreditFragment();
+                            actionBar.setTitle("Credits");
                             break;
                     }
 
