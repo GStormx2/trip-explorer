@@ -1,52 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp">
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card1"
+    android:layout_height="wrap_content">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="10dp">
-        <RelativeLayout
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/explore_divimage"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="7dp">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@color/lightGrey"
-                android:contentDescription="division image"
-                android:scaleType="centerCrop"/>
-            <TextView
-                android:id="@+id/explore_divname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dhaka"
-                android:textSize="26sp"
-                android:fontFamily="@font/lato_bold"
-                android:textColor="@color/font_normal"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/explore_divimage"
-                android:layout_centerInParent="true" />
-            <TextView
-                android:id="@+id/explore_divdesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/test_desc"
-                android:fontFamily="@font/lato_regular"
-                android:textSize="17sp"
-                android:layout_below="@id/explore_divname"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="10dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_below="@id/explore_divdesc"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/explore_divimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/uttara_dhaka"
+                    android:scaleType="centerCrop"/>
+                <TextView
+                    android:id="@+id/explore_divname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dhaka"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/font_normal"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/explore_divimage"
+                    android:layout_centerInParent="true" />
+                <TextView
+                    android:id="@+id/explore_divdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_desc"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_divname"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/explore_divdesc2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_desc2"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_divdesc"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/explore_divdesc3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_desc3"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_divdesc2"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/explore_divdesc"/>
+                <ImageView
+                    android:id="@+id/explore_divimage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/dhaka_city_1861"
+                    android:scaleType="centerCrop"
+                    android:layout_below="@id/explore_divdesc3"
+                    android:layout_margin="15dp"/>
+                <TextView
+                    android:id="@+id/explore_figtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Painting of Dhaka under British rule, 1861"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_below="@id/explore_divimage2"
+                    android:layout_centerInParent="true" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/explore_figtitle"/>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="7dp"
+            android:layout_below="@id/card1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/explore_place1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lalbagh Fort"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/font_normal"
+                    android:layout_margin="10dp"
+                    />
+                <TextView
+                    android:id="@+id/explore_lalbagh_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address: Lalbagh Rd, Dhaka 1211\nOpened: 1678\nHours: Monday to Saturday from 9AM till 5PM"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_place1"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/explore_lalbagh_desc1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lalbagh1"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_lalbagh_open"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/explore_lalbagh_desc2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lalbagh2"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_lalbagh_desc1"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/explore_lalbagh_desc3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lalbagh3"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/font_normal"
+                    android:textSize="17sp"
+                    android:layout_below="@id/explore_lalbagh_desc2"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"/>
+                <ImageView
+                    android:id="@+id/explore_lalbagh_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/lalbagh"
+                    android:scaleType="centerCrop"
+                    android:layout_below="@id/explore_lalbagh_desc3"
+                    android:layout_margin="15dp"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>
