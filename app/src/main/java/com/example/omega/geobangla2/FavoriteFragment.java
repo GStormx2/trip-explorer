@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,20 @@ public class FavoriteFragment extends Fragment {
         adapter.startListening();
         favlist_recyclerview.setAdapter(adapter);
         favlist_recyclerview.setLayoutManager(layoutManager);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                adapter.getSnapshots().getSnapshot(viewHolder.getAdapterPosition()).getRef().removeValue();
+
+            }
+        }).attachToRecyclerView(favlist_recyclerview);
+
         return view;
     }
 }

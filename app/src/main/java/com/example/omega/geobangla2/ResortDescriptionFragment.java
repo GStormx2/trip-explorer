@@ -2,6 +2,7 @@ package com.example.omega.geobangla2;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -51,6 +52,8 @@ public class ResortDescriptionFragment extends Fragment {
     TextView textView_pack1price;
     TextView textView_pack2price;
     Button button_booknowbtn;
+    Button button_call;
+    Button button_email;
     TextView textView_desc;
     TextView textView_amenitiestitle;
     TextView textView_amenities ;
@@ -79,6 +82,8 @@ public class ResortDescriptionFragment extends Fragment {
         textView_pack1price = v.findViewById(R.id.resort_desc_pack1price);
         textView_pack2price = v.findViewById(R.id.resort_desc_pack2price);
         button_booknowbtn = v.findViewById(R.id.rest_desc_booknowbtn);
+        button_call = v.findViewById(R.id.rest_desc_callbtn);
+        button_email = v.findViewById(R.id.rest_desc_emailbtn);
         textView_desc = v.findViewById(R.id.resort_desc_desc);
         textView_amenitiestitle = v.findViewById(R.id.amenities_letter_spacing);
         textView_amenities = v.findViewById(R.id.resort_desc_amenities);
@@ -134,7 +139,25 @@ public class ResortDescriptionFragment extends Fragment {
 
             }
         });
-
+        button_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01749518145"));
+                startActivity(intent);
+            }
+        });
+        button_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_EMAIL, "example@gmail.com");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Booking Query");
+                intent.putExtra(Intent.EXTRA_TEXT, "<PUT MESSAGE BODY HERE>");
+                intent.setType("message/rfc822");
+                startActivity(Intent.createChooser(intent, "Choose an EMAIL client"));
+            }
+        });
         resort_desc_fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

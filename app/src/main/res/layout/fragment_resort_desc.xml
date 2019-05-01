@@ -376,11 +376,37 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="15sp"
                     android:layout_marginRight="10dp"/>
+                <Button
+                    android:id="@+id/rest_desc_callbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@android:color/holo_red_light"
+                    android:text="CALL"
+                    android:fontFamily="@font/lato_black"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/resort_desc_phone"/>
+
+                <Button
+                    android:id="@+id/rest_desc_emailbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="EMAIL"
+                    android:fontFamily="@font/lato_black"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:layout_below="@id/rest_desc_callbtn"/>
+
                 <ImageView
                     android:id="@+id/resort_desc_map"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:layout_below="@id/resort_desc_phone"
+                    android:layout_below="@id/rest_desc_emailbtn"
                     android:layout_margin="10dp"/>
                 <View
                     android:layout_width="wrap_content"

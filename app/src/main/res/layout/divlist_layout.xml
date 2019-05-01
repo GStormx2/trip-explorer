@@ -14,13 +14,13 @@
         android:background="#FFFFFF">
 
 
-    <ImageView
-        android:id="@+id/divison_img"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@color/grey"
-        android:contentDescription="just an image"
-        android:scaleType="centerCrop"/>
+        <ImageView
+            android:id="@+id/divison_img"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:contentDescription="just an image"
+            android:scaleType="centerCrop"
+            android:src="@color/grey" />
     <TextView
         android:id="@+id/division_name"
         android:layout_marginTop="165dp"
