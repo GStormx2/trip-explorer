@@ -14,8 +14,13 @@ Hotel & Restaurant booking application. This is an Android application built wit
   <img src="/screenshots/hotel_book_now.png" width="32%" />
 </p>
 <p align="middle" float="left">
+  <img src="/screenshots/booking_info.png" width="32%" />
   <img src="/screenshots/booking_payment.png" width="32%" />
-  <img src="/screenshots/exploree_tab.png" width="32%" /> 
+  <img src="/screenshots/profile_later.png" width="32%" /> 
+</p>
+<p align="middle" float="left">
+  <img src="/screenshots/exploree_tab.png" width="32%" />
+  <img src="/screenshots/credits.png" width="32%" />
 </p>
 
 ## Features
