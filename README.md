@@ -11,22 +11,12 @@ Hotel & Restaurant booking application. This is an Android application built wit
 <p align="middle" float="left">
   <img src="/screenshots/city_list.png" width="32%" />
   <img src="/screenshots/hotel_list.png" width="32%" /> 
-  <img src="/screenshots/hotel_booking_now.png" width="32%" />
+  <img src="/screenshots/hotel_book_now.png" width="32%" />
 </p>
 <p align="middle" float="left">
   <img src="/screenshots/booking_payment.png" width="32%" />
   <img src="/screenshots/exploree_tab.png" width="32%" /> 
 </p>
-
-
-![Login/Signup](/screenshots/login_signup.png)
-![Create Account](/screenshots/create_account.png)
-![Initial Profile](/screenshots/initial_profile.png)
-![City List](/screenshots/city_list.png)
-![Hotel List](/screenshots/hotel_list.png)
-![Book Now](/screenshots/hotel_booking_now.png)
-![Booking Payment](/screenshots/booking_payment.png)
-![Explore](/screenshots/exploree_tab.png)
 
 ## Features
 - Account creation with email address with options to upload profile picture and cover photo (facebook inspired). Firebase Authentication was used to create and authenticate users.
